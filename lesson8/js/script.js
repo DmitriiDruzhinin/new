@@ -37,6 +37,8 @@ window.addEventListener('DOMContentLoaded', function() {
 		};
 	})
 
+	// Time
+
 	let deadline = '2018-04-10';
 
 	function getTimeRemaining(endtime) {
@@ -77,5 +79,6 @@ window.addEventListener('DOMContentLoaded', function() {
 	};
 
 	setClock('timer', deadline);
+
 
 });
