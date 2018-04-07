@@ -5,6 +5,7 @@ class Options{
 		this.bg = bg;
 		this.fontSize = fontSize;
 		this.textAlign = textAlign;
+		// console.log(height, width, bg, fontSize, textAlign);
 	}
 
 	newDiv(text, cssText){
@@ -17,7 +18,7 @@ class Options{
 
 }
 
-const creationDiv = new Options();
+const creationDiv = new Options(200, 300, 'fixed', 11, 'center');
 
 console.log(creationDiv.newDiv('Новый Div', 'newStail'));
 
