@@ -8,17 +8,27 @@ class Options{
 		// console.log(height, width, bg, fontSize, textAlign);
 	}
 
-	newDiv(text, cssText){
+	newDiv(text){
 		let div = document.createElement('div'); 	
-		div.innerHTML = `${text}`;	
-		div.classList.add(`${cssText}`);
+		
+		div.style.height = this.height;
+		div.style.width = this.width;
+		div.style.backgroundColor = this.bg;
+		div.style.fontSize = this.fontSize;
+		div.style.textAlign = this.textAlign;
+		div.textContent= text;
 		document.body.appendChild(div);
+
+		
 		console.log(div);
 	}
 
 }
 
-const creationDiv = new Options(200, 300, 'fixed', 11, 'center');
+const creationDiv = new Options('200px', '300px', 'red', '50pt', 'center');
 
-console.log(creationDiv.newDiv('Новый Div', 'newStail'));
+console.log(creationDiv.newDiv('Новый Div'));
 
+// div.style.display = 'inline-block';
+        
+        
