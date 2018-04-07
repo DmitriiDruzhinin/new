@@ -104,7 +104,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			});
 
 	   	}	
-	    
+	   
 //
 		more.addEventListener('click', function() {
 				this.classList.add('more-splash');
