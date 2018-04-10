@@ -39,14 +39,19 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// Time
 
-	let deadline = '2018-04-10';
+	let deadline = '2018-03-10';
+
+	// if ()
 
 	function getTimeRemaining(endtime) {
 
-		let t = Date.parse(endtime) - Date.parse(new Date()),
-			seconds = Math.floor( (t/1000) % 60 ),
-			minutes = Math.floor( (t/1000/60) % 60 ),
-			hours = Math.floor( (t/(1000*60*60)) );
+		let t = Date.parse(endtime) - Date.parse(new Date());
+
+			if (t < 0 ) {
+					console.log('прав');
+			let seconds = '00',
+				minutes = '00',
+				hours = '00';
 
 			return {
 				'total': t,
@@ -54,6 +59,21 @@ window.addEventListener('DOMContentLoaded', function() {
 				'minutes': minutes,
 				'seconds': seconds
 			};
+			}
+			else {
+			let seconds = Math.floor( (t/1000) % 60 ),
+				minutes = Math.floor( (t/1000/60) % 60 ),
+				hours = Math.floor( (t/(1000*60*60)) );
+
+			return {
+				'total': t,
+				'hours': hours,
+				'minutes': minutes,
+				'seconds': seconds
+			};	
+			}
+			
+
 	};
 
 	function setClock(id, endtime){
@@ -65,6 +85,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			function updateClock() {
 				let t = getTimeRemaining(endtime);
+				// console.log(t);
 				hours.innerHTML = t.hours;
 				minutes.innerHTML = t.minutes;
 				seconds.innerHTML = t.seconds;
