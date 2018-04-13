@@ -275,6 +275,8 @@ window.addEventListener('DOMContentLoaded', function() {
 				total = (daysSum + personsSum)*4000;
 				if (restDays.value == '') {
 					totalValue.innerHTML = 0;
+				} else if (restDays.value < 1) {
+					totalValue.innerHTML = 0;
 				} else {
 					totalValue.innerHTML = total;
 				}
@@ -285,6 +287,8 @@ window.addEventListener('DOMContentLoaded', function() {
 				total = (daysSum + personsSum)*4000;
 				if (persons.value == '') {
 					totalValue.innerHTML = 0;
+				} else if (persons.value < 1) {
+					totalValue.innerHTML = 0;
 				} else {
 					totalValue.innerHTML = total;
 				}
@@ -292,6 +296,8 @@ window.addEventListener('DOMContentLoaded', function() {
 
 			place.addEventListener('change', function() {
 				if (restDays.value == '' || persons.value == '') {
+					totalValue.innerHTML = 0;
+				} else if (restDays.value < 1 || persons.value < 1) {
 					totalValue.innerHTML = 0;
 				} else {
 					let a = total;
