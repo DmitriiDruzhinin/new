@@ -38,6 +38,11 @@ describe("num", function() {
 	});
 });
 
+describe("each", function() {
+	it("Проверяем each на соответствие ожидаемому результату", function() {
+		assert.equal(each(arrArr, myFunc),  [8,7,6,5,4]);
+	});
+});
 
 
 describe("each", function() {
