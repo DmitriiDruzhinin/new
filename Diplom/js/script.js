@@ -1,6 +1,7 @@
 window.addEventListener('DOMContentLoaded', function() {
 
-		// Modal window off
+//	// Modal window off
+
 	let popup_btn = document.getElementById('popup-btn'),
 		overlay = document.querySelector('.overlay'),
 		main = document.querySelector('.main'),
@@ -19,4 +20,219 @@ window.addEventListener('DOMContentLoaded', function() {
 				
 				});
 		
+	
+//	// Creating a new candidate
+		
+	
+
+		let ready = document.getElementById('ready'),
+			nameId = document.getElementById('name'),
+			ageId = document.getElementById('age'),
+			radioId = document.getElementsByName('sex'),
+			select = document.getElementById('select'),
+			bioId = document.getElementById('bio'),
+			personEasy = document.querySelector('.person-easy'),
+			preview = document.querySelector('.preview');
+		
+			
+	
+	// name
+		nameId.addEventListener('change', () => {
+			let name = nameId.value;
+
+			if (isNaN(name) && name != '' && name.length < 50) {
+				candidate.nameCandidate = name;
+			} else {
+				// alert("Заполните правильно ФИО"); 
+			};
+		});
+
+	// age
+		ageId.addEventListener('change', () => {
+			let age = ageId.value;
+
+			if (!isNaN(age) && age != '') {
+				candidate.ageCandidate = age;
+			} else {
+				// alert("Заполните правильно возраст");
+			};
+		});
+
+	// select 
+		 select.addEventListener('change', () => {
+
+				candidate.positionCandidate = select.value;
+		});	
+
+	// bios
+		bioId.addEventListener('change', () => {
+			bio = bioId.value;
+			
+			if (bio.length < 100 && bio != '') {
+				candidate.biosCandidate = bio.split(" ");
+			} else {
+				// alert("Заполните правильно биографию");
+			};
+		});
+	
+	// gender man/woman
+	
+		let radioOption = [document.getElementsByName('sex')[0],document.getElementsByName('sex')[1]];
+		var a = 5,
+			b = 8;	
+  
+		radioOption.forEach(function(e) {
+			e.addEventListener("click", function() {
+			candidate.genderCandidate = e.value;
+				if(candidate.genderCandidate == "Мужской"){
+					a = 5,
+					b = 8;
+					preview.style.backgroundImage = "url('../Diplom/img/construct-5.png')";
+					personEasy.style.backgroundImage = preview.style.backgroundImage;
+					candidate.urlImg  = preview.style.backgroundImage;
+				} else {
+					a = 1,
+					b = 4;
+					preview.style.backgroundImage = "url('../Diplom/img/construct-4.png')";
+					personEasy.style.backgroundImage = preview.style.backgroundImage;
+					candidate.urlImg  = preview.style.backgroundImage;
+				};
+
+			});
+		});
+
+	// Slider
+
+		let slideIndex = 1,
+			prev = document.querySelector('.prev'),
+			next = document.querySelector('.next');
+		
+
+		showSlides(slideIndex);
+
+		function showSlides(n) {
+
+			if (n > b) {
+				slideIndex = a;
+			};
+			if (n < a) {
+				slideIndex = b;
+			};
+
+			preview.style.backgroundImage = "url('../Diplom/img/construct-" + slideIndex + ".png')";
+			personEasy.style.backgroundImage = preview.style.backgroundImage;
+			candidate.urlImg = preview.style.backgroundImage;
+
+		}
+
+		function plusSlides (n) {
+			showSlides(slideIndex += n);
+		};
+
+		prev.addEventListener('click', function() {
+			plusSlides(-1);
+		});
+
+		next.addEventListener('click', function() {
+			plusSlides(1);					
+		});
+
+
+//	// The creation of a card of the candidate
+
+		ready.addEventListener('click', function() {
+		
+		// 	activation card	
+				overlay.style.display = "none";
+				main.style.display = "block";
+				custom.style.display = 'none';
+				customInfo.style.display = 'none';
+				customChar.style.display = 'none';
+				customStyle.style.display = 'none';
+
+		let mainCardsItem = document.getElementsByClassName('main-cards-item'),		// new card
+			mainCards = document.getElementsByClassName('main-cards')[0],
+			div = document.createElement('div');
+			div.classList.add("main-cards-item");					
+			mainCards.insertBefore(div, mainCardsItem[1]);
+			
+		let divBlock = document.createElement('div');								// new div class="candidate-block"
+			divBlock.classList.add("candidate-block");
+			mainCardsItem[1].appendChild(divBlock);
+
+		let divPhoto = document.createElement('div');								// new div class="photo photo-1"
+			divPhoto.classList.add("photo");
+			divPhoto.style.backgroundSize = "cover";
+			divPhoto.style.backgroundImage = candidate.urlImg;
+			// divPhoto.style.backgroundPosition = "center";
+			// divPhoto.style.backgroundRepeat = "no-repeat";
+			divBlock.appendChild(divPhoto);
+
+		let divResult = document.createElement('div');								// new div class="result"
+			divResult.classList.add("result");
+			divBlock.appendChild(divResult);
+
+		let divResultCount = document.createElement('div');							// new div class="result-count"
+			divResultCount.innerHTML = '0 %';
+			divResultCount.classList.add("result-count");
+			divResult.appendChild(divResultCount);
+
+		let divResultProgress = document.createElement('div');						// new div class="progress"
+			divResultProgress.classList.add("progress");
+			divResult.appendChild(divResultProgress);
+		
+		let divResultProgressBar = document.createElement('div');					// new div class="progress-bar"
+			divResultProgressBar.classList.add("progress-bar");
+			divResultProgress.appendChild(divResultProgressBar);
+
+		let divName = document.createElement('div');								// new div class="name"
+			divName.textContent =  candidate.nameCandidate;
+			divName.classList.add("name");
+			mainCardsItem[1].appendChild(divName);
+
+		let divAge = document.createElement('div');									// new div class="age"
+			divAge.textContent =  candidate.ageCandidate + " лет";
+			divAge.classList.add("age");
+			mainCardsItem[1].appendChild(divAge);
+
+		let divSexName = document.createElement('div');								// new div name_sex
+			divSexName.textContent = "Пол:";
+			mainCardsItem[1].appendChild(divSexName);
+		
+		let divSex = document.createElement('div');									// new div class="sex"
+			divSex.textContent =  candidate.genderCandidate;
+			divSex.classList.add("sex");
+			mainCardsItem[1].appendChild(divSex);
+			
+		let divViewsName = document.createElement('div');							// new div name_views
+			divViewsName.textContent = "Полит. взгляды:";
+			mainCardsItem[1].appendChild(divViewsName);
+		
+		let divViews = document.createElement('div');								// new div class="views"
+			divViews.textContent =  candidate.positionCandidate;
+			divViews.classList.add("views");
+			mainCardsItem[1].appendChild(divViews);
+
+		let divBioName = document.createElement('div');							// new div name_bio
+			divBioName.textContent = "Биография";
+			mainCardsItem[1].appendChild(divBioName);
+		
+		let divBio = document.createElement('div');									// new div class="bio"
+			divBio.textContent =  candidate.biosCandidate;
+			divBio.classList.add("bio");
+			mainCardsItem[1].appendChild(divBio);
+		});
+		
 });
+
+
+//	// Сandidate's personal data
+
+	var candidate = {
+		nameCandidate: '',
+		ageCandidate: age,
+		genderCandidate: "Мужской",
+		positionCandidate: 'Либеральные',
+		biosCandidate: [],
+		urlImg: ""
+	};
