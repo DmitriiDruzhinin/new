@@ -143,11 +143,11 @@ window.addEventListener('DOMContentLoaded', function() {
 		ready.addEventListener('click', function() {
 		
 			if(candidate.nameCandidate == '') {
-				alert("Заполните ФИО");
-			} else if (candidate.ageCandidate == '' ) {
-				alert("Заполните возраст");
-			} else if (candidate.biosCandidate == '') {
-				alert("Заполните Биографию");
+					alert("Заполните ФИО");
+				} else if (candidate.ageCandidate == '' ) {
+					alert("Заполните возраст");
+				} else if (candidate.biosCandidate == '') {
+					alert("Заполните Биографию");
 			} else {
 
 				// 	activation card	
@@ -229,6 +229,14 @@ window.addEventListener('DOMContentLoaded', function() {
 					divBio.textContent =  candidate.biosCandidate;
 					divBio.classList.add("bio");
 					mainCardsItem[1].appendChild(divBio);
+			
+					let resultCount = document.getElementsByClassName('result-count'),		// result = 0 %
+						progressBar = document.getElementsByClassName('progress-bar');
+						resultCount[0].innerHTML = '0 %';
+						resultCount[2].innerHTML = '0 %';
+						progressBar[0].style.height = 'initial';
+						progressBar[2].style.height = 'initial';
+					
 			};
 		});
 		
