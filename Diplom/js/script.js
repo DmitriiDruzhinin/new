@@ -135,16 +135,14 @@ window.addEventListener('DOMContentLoaded', function() {
 //	//	ready_btn
 
 		ready.addEventListener('click', function () {
-			console.log('gh');
 			myCandidate();
 		});
 
 //	//	reset_btn
 
 		reset.addEventListener('click', function () {
-			console.log('gh1');
 			let mainCardsItem = document.getElementsByClassName('main-cards-item'),
-					mainCards = document.getElementsByClassName('main-cards')[0];
+				mainCards = document.getElementsByClassName('main-cards')[0];
 			mainCards.removeChild(mainCardsItem[1]);
 			modalWindow();
 			resData();
@@ -155,9 +153,12 @@ window.addEventListener('DOMContentLoaded', function() {
 			let nameIdRes = document.getElementById('name'),
 				ageIdRes = document.getElementById('age'),
 				bioIdRes = document.getElementById('bio');
-				nameIdRes.value = "";
-				ageIdRes.value = '';
-				bioIdRes.value = "";
+			nameIdRes.value = "";
+			ageIdRes.value = '';
+			bioIdRes.value = "";
+			candidate.nameCandidate = "";
+			candidate.ageCandidate = "";
+			candidate.biosCandidate = "";
 		};
 
 //	// The creation of a card of the candidate		
