@@ -11,13 +11,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		custom = document.querySelector('.custom');
 	
 			popup_btn.addEventListener('click', function() {
-				overlay.style.display = "none";
-				main.style.display = "none";
-				custom.style.display = 'flex';
-				customInfo.style.display = 'block';
-				customChar.style.display = 'block';
-				customStyle.style.display = 'block';
-				
+					modalWindow();
 				});
 		
 	
@@ -26,6 +20,7 @@ window.addEventListener('DOMContentLoaded', function() {
 	
 
 		let ready = document.getElementById('ready'),
+			reset = document.getElementById('reset'),
 			nameId = document.getElementById('name'),
 			ageId = document.getElementById('age'),
 			radioId = document.getElementsByName('sex'),
@@ -34,8 +29,7 @@ window.addEventListener('DOMContentLoaded', function() {
 			personEasy = document.querySelector('.person-easy'),
 			preview = document.querySelector('.preview');
 		
-			
-	
+
 	// name
 		nameId.addEventListener('change', () => {
 			let name = nameId.value;
@@ -138,10 +132,36 @@ window.addEventListener('DOMContentLoaded', function() {
 		});
 
 
-//	// The creation of a card of the candidate
+//	//	ready_btn
 
-		ready.addEventListener('click', function() {
-		
+		ready.addEventListener('click', function () {
+			console.log('gh');
+			myCandidate();
+		});
+
+//	//	reset_btn
+
+		reset.addEventListener('click', function () {
+			console.log('gh1');
+			let mainCardsItem = document.getElementsByClassName('main-cards-item'),
+					mainCards = document.getElementsByClassName('main-cards')[0];
+			mainCards.removeChild(mainCardsItem[1]);
+			modalWindow();
+			resData();
+
+		});
+
+		function resData() {
+			let nameIdRes = document.getElementById('name'),
+				ageIdRes = document.getElementById('age'),
+				bioIdRes = document.getElementById('bio');
+				nameIdRes.value = "";
+				ageIdRes.value = '';
+				bioIdRes.value = "";
+		};
+
+//	// The creation of a card of the candidate		
+		function myCandidate() {
 			if(candidate.nameCandidate == '') {
 					alert("Заполните ФИО");
 				} else if (candidate.ageCandidate == '' ) {
@@ -163,7 +183,7 @@ window.addEventListener('DOMContentLoaded', function() {
 					div = document.createElement('div');
 					div.classList.add("main-cards-item");					
 					mainCards.insertBefore(div, mainCardsItem[1]);
-					
+
 				let divBlock = document.createElement('div');								// new div class="candidate-block"
 					divBlock.classList.add("candidate-block");
 					mainCardsItem[1].appendChild(divBlock);
@@ -238,8 +258,16 @@ window.addEventListener('DOMContentLoaded', function() {
 						progressBar[2].style.height = 'initial';
 					
 			};
-		});
-		
+		};
+//	// Modal window 
+		function modalWindow() {
+			overlay.style.display = "none";
+			main.style.display = "none";
+			custom.style.display = 'flex';
+			customInfo.style.display = 'block';
+			customChar.style.display = 'block';
+			customStyle.style.display = 'block';
+		};
 });
 
 
