@@ -18,7 +18,6 @@ window.addEventListener('DOMContentLoaded', function() {
 //	// Creating a new candidate
 		
 	
-
 		let ready = document.getElementById('ready'),
 			reset = document.getElementById('reset'),
 			nameId = document.getElementById('name'),
@@ -161,7 +160,8 @@ window.addEventListener('DOMContentLoaded', function() {
 			candidate.biosCandidate = "";
 		};
 
-//	// The creation of a card of the candidate		
+//	// The creation of a card of the candidate
+
 		function myCandidate() {
 			if(candidate.nameCandidate == '') {
 					alert("Заполните ФИО");
@@ -253,14 +253,18 @@ window.addEventListener('DOMContentLoaded', function() {
 			
 					let resultCount = document.getElementsByClassName('result-count'),		// result = 0 %
 						progressBar = document.getElementsByClassName('progress-bar');
-						resultCount[0].innerHTML = '0 %';
-						resultCount[2].innerHTML = '0 %';
-						progressBar[0].style.height = 'initial';
-						progressBar[2].style.height = 'initial';
+						resultCount[0].innerHTML = '0%';
+						resultCount[1].innerHTML = '0%';
+						resultCount[2].innerHTML = '0%';
+						progressBar[0].style.height = '0%';
+						progressBar[1].style.height = '0%';
+						progressBar[2].style.height = '0%';
 					
 			};
 		};
-//	// Modal window 
+
+//	// Modal window
+
 		function modalWindow() {
 			overlay.style.display = "none";
 			main.style.display = "none";
@@ -269,7 +273,40 @@ window.addEventListener('DOMContentLoaded', function() {
 			customChar.style.display = 'block';
 			customStyle.style.display = 'block';
 		};
+
+//	// to hold a fair vote
+
+		voting.addEventListener('click', function () {
+			// let voting = document.getElementById('voting');
+			let resultCount = document.getElementsByClassName('result-count'),
+				progressBar = document.getElementsByClassName('progress-bar');
+					resultCount[0].innerHTML = '45%';
+					resultCount[1].innerHTML = '32%';
+					resultCount[2].innerHTML = '23%';
+					// progressBar[0].classList.add("progress-bar");
+					progressBar[0].style.height = '45%';
+					progressBar[1].style.height = '32%';
+					progressBar[2].style.height = '23%';
+		});
+
+//	// intervene in elections
+
+		crime.addEventListener('click', function () {
+			// let crime = document.getElementById('crime');
+			let resultCount = document.getElementsByClassName('result-count'),
+				progressBar = document.getElementsByClassName('progress-bar');
+					resultCount[0].innerHTML = '32%';
+					resultCount[1].innerHTML = '57%';
+					resultCount[2].innerHTML = '11%';
+					// progressBar[0].classList.add("progress-bar");
+					progressBar[0].style.height = '32%';
+					progressBar[1].style.height = '57%';
+					progressBar[2].style.height = '11%';
+		});
 });
+
+
+
 
 
 //	// Сandidate's personal data
