@@ -144,10 +144,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		
 			if(candidate.nameCandidate == '') {
 				alert("Заполните ФИО");
-			// } else if (candidate.ageCandidate == '' ) {
-			// 	alert("Заполните возраст");
-			// } else if (candidate.biosCandidate == '') {
-			// 	alert("Заполните Биографию");
+			} else if (candidate.ageCandidate == '' ) {
+				alert("Заполните возраст");
+			} else if (candidate.biosCandidate == '') {
+				alert("Заполните Биографию");
 			} else {
 
 				// 	activation card	
