@@ -287,6 +287,8 @@ window.addEventListener('DOMContentLoaded', function() {
 					progressBar[0].style.height = '45%';
 					progressBar[1].style.height = '32%';
 					progressBar[2].style.height = '23%';
+					resultActive();
+
 		});
 
 //	// intervene in elections
@@ -302,7 +304,28 @@ window.addEventListener('DOMContentLoaded', function() {
 					progressBar[0].style.height = '32%';
 					progressBar[1].style.height = '57%';
 					progressBar[2].style.height = '11%';
+					resultActive();
+
 		});
+		
+		function resultActive() {
+			
+			let resultcardsItem = document.querySelector('.main-cards-item-active'),
+				resultCount = document.getElementsByClassName('result-count'),
+				resultcardsItemActive = document.getElementsByClassName('main-cards-item');
+				
+				resultcardsItem.classList.remove('main-cards-item-active');
+				
+					if (resultCount[0].innerHTML > resultCount[1].innerHTML && resultCount[1].innerHTML >resultCount[2].innerHTML) {
+						resultcardsItemActive[0].classList.add('main-cards-item-active');
+					} else if (resultCount[1].innerHTML > resultCount[2].innerHTML && resultCount[2].innerHTML > resultCount[0].innerHTML) {
+						resultcardsItemActive[1].classList.add('main-cards-item-active');
+					} else  {
+						resultcardsItemActive[2].classList.add('main-cards-item-active');
+					};
+
+		};
+
 });
 
 
