@@ -80,13 +80,13 @@ window.addEventListener('DOMContentLoaded', function() {
 				if(candidate.genderCandidate == "Мужской"){
 					a = 7,
 					b = 8;
-					preview.style.backgroundImage = "url('../Diplom/img/construct-5.png')";
+					preview.style.backgroundImage = "url('../Diplom/img/construct-7.png')";
 					personEasy.style.backgroundImage = preview.style.backgroundImage;
 					candidate.urlImg  = preview.style.backgroundImage;
 				} else {
 					a = 1,
 					b = 6;
-					preview.style.backgroundImage = "url('../Diplom/img/construct-4.png')";
+					preview.style.backgroundImage = "url('../Diplom/img/construct-6.png')";
 					personEasy.style.backgroundImage = preview.style.backgroundImage;
 					candidate.urlImg  = preview.style.backgroundImage;
 				};
@@ -96,7 +96,7 @@ window.addEventListener('DOMContentLoaded', function() {
 
 	// Slider
 
-		let slideIndex = 1,
+		let slideIndex = 8,
 			prev = document.querySelector('.prev'),
 			next = document.querySelector('.next');
 		
@@ -316,9 +316,9 @@ window.addEventListener('DOMContentLoaded', function() {
 				
 				resultcardsItem.classList.remove('main-cards-item-active');
 				
-					if (resultCount[0].innerHTML > resultCount[1].innerHTML && resultCount[1].innerHTML >resultCount[2].innerHTML) {
+					if (resultCount[0].innerHTML > resultCount[1].innerHTML && resultCount[0].innerHTML >resultCount[2].innerHTML) {
 						resultcardsItemActive[0].classList.add('main-cards-item-active');
-					} else if (resultCount[1].innerHTML > resultCount[2].innerHTML && resultCount[2].innerHTML > resultCount[0].innerHTML) {
+					} else if (resultCount[1].innerHTML > resultCount[0].innerHTML && resultCount[1].innerHTML > resultCount[2].innerHTML) {
 						resultcardsItemActive[1].classList.add('main-cards-item-active');
 					} else  {
 						resultcardsItemActive[2].classList.add('main-cards-item-active');
