@@ -86,7 +86,7 @@ window.addEventListener('DOMContentLoaded', function() {
 				} else {
 					a = 1,
 					b = 4;
-					preview.style.backgroundImage = "url('../Diplom/img/construct-6.png')";
+					preview.style.backgroundImage = "url('../Diplom/img/construct-3.png')";
 					personEasy.style.backgroundImage = preview.style.backgroundImage;
 					candidate.urlImg  = preview.style.backgroundImage;
 				};
