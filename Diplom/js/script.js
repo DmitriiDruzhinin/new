@@ -44,10 +44,10 @@ window.addEventListener('DOMContentLoaded', function() {
 		ageId.addEventListener('change', () => {
 			let age = ageId.value;
 
-			if (!isNaN(age) && age != '') {
+			if (!isNaN(age) && age != '' && age > 35) {
 				candidate.ageCandidate = age;
 			} else {
-				// alert("Заполните возраст");
+				alert("Заполните возраст");
 			};
 		});
 
@@ -71,21 +71,21 @@ window.addEventListener('DOMContentLoaded', function() {
 	// gender man/woman
 	
 		let radioOption = [document.getElementsByName('sex')[0],document.getElementsByName('sex')[1]];
-		var a = 7,
+		var a = 5,
 			b = 8;	
   
 		radioOption.forEach(function(e) {
 			e.addEventListener("click", function() {
 			candidate.genderCandidate = e.value;
 				if(candidate.genderCandidate == "Мужской"){
-					a = 7,
+					a = 5,
 					b = 8;
 					preview.style.backgroundImage = "url('../Diplom/img/construct-7.png')";
 					personEasy.style.backgroundImage = preview.style.backgroundImage;
 					candidate.urlImg  = preview.style.backgroundImage;
 				} else {
 					a = 1,
-					b = 6;
+					b = 4;
 					preview.style.backgroundImage = "url('../Diplom/img/construct-6.png')";
 					personEasy.style.backgroundImage = preview.style.backgroundImage;
 					candidate.urlImg  = preview.style.backgroundImage;
@@ -165,7 +165,7 @@ window.addEventListener('DOMContentLoaded', function() {
 		function myCandidate() {
 			if(candidate.nameCandidate == '') {
 					alert("Заполните ФИО");
-				} else if (candidate.ageCandidate == '' ) {
+				} else if (candidate.ageCandidate == '' && candidate.ageCandidate < 35) {
 					alert("Заполните возраст");
 				} else if (candidate.biosCandidate == '') {
 					alert("Заполните Биографию");
